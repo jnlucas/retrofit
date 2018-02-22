@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         api.buscarPokemon(nome.text.toString().toInt())
             .enqueue(object : Callback<Pokemon> {
                 override fun onResponse(call: Call<Pokemon>?, response: Response<Pokemon>?) {
-                    
+
                 }
 
                 override fun onFailure(call: Call<Pokemon>?, t: Throwable?) {
