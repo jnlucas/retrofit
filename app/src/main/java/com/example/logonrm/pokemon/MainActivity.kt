@@ -40,10 +40,11 @@ class MainActivity : AppCompatActivity() {
             .enqueue(object : Callback<Pokemon> {
                 override fun onResponse(call: Call<Pokemon>?, response: Response<Pokemon>?) {
                     nomePokemon.text = response?.body()?.name
+                    Log.i("FU","ASASAA")
                 }
 
                 override fun onFailure(call: Call<Pokemon>?, t: Throwable?) {
-
+                    Log.i("NAOFU","ASASAA")
                 }
             })
 
