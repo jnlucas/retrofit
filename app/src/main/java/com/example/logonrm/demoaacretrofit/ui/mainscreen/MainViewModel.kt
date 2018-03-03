@@ -16,6 +16,9 @@ class  MainViewModel: ViewModel() {
     private val enderecoRepository: EnderecoRepository
     private val mApiResponse: MediatorLiveData<EnderecoResponse> = MediatorLiveData()
 
+    val isLoading: MutableLiveData<Boolean> = MutableLiveData()
+
+
     val apiResponse: LiveData<EnderecoResponse>
         get() = mApiResponse
 
@@ -27,10 +30,13 @@ class  MainViewModel: ViewModel() {
 
     fun pesquisarEndereco(cep: String): LiveData<EnderecoResponse>? {
 
+        isLoading.postValue(true)
+
         mApiResponse.addSource(
                 enderecoRepository.buscarEndereco(cep)
         ){
             apiResponse -> mApiResponse.value = apiResponse
+            isLoading.postValue(false)
 
         }
         return mApiResponse
