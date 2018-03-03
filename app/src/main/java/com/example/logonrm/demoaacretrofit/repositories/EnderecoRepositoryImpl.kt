@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class EnderecoRepositoryImpl: EnderecoRepository {
 
     private val enderecoAPI: EnderecoAPI
-    private var url: String = "https://viacep.com.br/"
+    private var url: String = "http://viacep.com.br"
 
 
     init {
@@ -48,6 +48,8 @@ class EnderecoRepositoryImpl: EnderecoRepository {
 
 
         })
+
+        return liveData
 
     }
 
